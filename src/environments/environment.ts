@@ -1,3 +1,7 @@
+import { AppEnv } from "../app/enum/app-env.enum";
+
 export const environment = {
-    endpoint: 'https://dev-api.portaldoseller.com.br/v2/sales-impulse'
+  env: AppEnv.DEV,
+  endpoint: 'https://dev-api.portaldoseller.com.br/v2/sales-impulse',
+  store_development: 'development',
 };

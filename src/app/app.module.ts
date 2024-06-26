@@ -24,6 +24,7 @@ import { VerticalNavbarComponent } from './components/vertical-navbar/vertical-n
 import { ProgressQueryBarComponent } from './components/progress-query-bar/progress-query-bar.component';
 import { ProgressQueryBarService } from './services/progress-query-bar.service';
 import { InjectScriptService } from './services/inject-script.service';
+import { AccountModule } from './modules/account/account.module';
 
 registerLocaleData(localePt);
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -54,7 +55,8 @@ export const CustomPercentMaskConfig: CurrencyMaskConfig = {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    AccountModule
   ],
   providers: [
     ProgressQueryBarService,
