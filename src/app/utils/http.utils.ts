@@ -1,7 +1,5 @@
 import { HttpHeaders } from "@angular/common/http";
-import { AccountService } from "../modules/account/service/account.service";
 import { Injectable } from "@angular/core";
-import { AccessLogin } from "../modules/account/entities/access-login";
 
 export class HttpUtils {
     static isSecureProtocol(): boolean {

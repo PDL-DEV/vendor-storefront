@@ -4,29 +4,11 @@
         <div class="container-xxl">
             <!-- Start Nav -->
             <div class="nav-start-wrap">
-                <a class="navbar-brand" href="index.html">
-                    <img class="brand-img d-inline-block" src="dist/img/logo-light.png" alt="brand">
+                <a class="navbar-brand" href="/">
+                    <img class="brand-img d-inline-block" [src]="layout?.logotipo_url" alt="brand">
                 </a>
             </div>
-            <!-- /Start Nav -->
-            <!-- End Nav -->
-            <div class="nav-end-wrap">
-                <ul class="navbar-nav flex-row">
-                    <li class="nav-item nav-link py-0">
-                        <button class="btn btn-sm btn-outline-light">
-                            <span>
-                                <span class="icon">
-                                    <span class="feather-icon">
-                                        <i data-feather="help-circle"></i>
-                                    </span>
-                                </span>
-                                <span>Get Help</span>
-                            </span>
-                        </button>
-                    </li>
-                </ul>
-            </div>
-            <!-- /End Nav -->
+            <!-- /Start Nav -->            
         </div>
     </nav>
     <!-- /Top Navbar -->
@@ -42,16 +24,9 @@
                         <div class="auth-content py-md-0 py-8">
                             <div class="row">
                                 <div class="col-xxl-9 col-xl-8 col-lg-11 text-center mx-auto">
-                                    <img src="dist/img/macaroni-logged-out.png" class="img-fluid w-sm-40 w-50 mb-3" alt="login">
-                                    <h3 class="mb-2">Dig into festive savings, Go Premium</h3>
-                                    <p class="w-xxl-65 w-100 mx-auto">Save 20% on the premium membership plan by using the promo code "JAMPACK20"</p>
-                                    <a href="#" class="btn btn-sm btn-primary btn-uppercase mt-4">Upgrade Now</a>
-                                    <p class="p-xs mt-5 text-light">
-                                        All illustration are powered by
-                                        <a href="https://icons8.com/ouch/" target="_blank" class="text-light">
-                                            <u>Icons8</u>
-                                        </a>
-                                    </p>
+                                    <img [src]="layout?.logotipo_url" class="img-fluid w-sm-40 w-50 mb-3" alt="login">
+                                    <h3 class="mb-2">Sales Impulse</h3>
+                                    <p class="w-xxl-65 w-100 mx-auto">Uma nova forma de unir o digital ao físico e impulsionar suas vendas</p>                                    
                                 </div>
                             </div>
                         </div>
@@ -61,11 +36,11 @@
                             <form class="w-100">
                                 <div class="row">
                                     <div class="col-lg-10 mx-auto">
-                                        <h4 class="mb-4">Sign in to your account</h4>
+                                        <h4 class="mb-4">Bem vindo de volta, vendedor!</h4>
                                         <div class="row gx-3">
                                             <div class="form-group col-lg-12">
                                                 <div class="form-label-group">
-                                                    <label>User Name</label>
+                                                    <label>Email ou CPF</label>
                                                 </div>
                                                 <input
                                                     class="form-control"
@@ -77,7 +52,7 @@
                                             <div class="form-group col-lg-12">
                                                 <div class="form-label-group">
                                                     <label>Password</label>
-                                                    <a href="#" class="fs-7 fw-medium">Forgot Password ?</a>
+                                                    <a href="#" class="fs-7 fw-medium">Esqueceu sua senha?</a>
                                                 </div>
                                                 <div class="input-group password-check">
                                                     <span class="input-affix-wrapper">
@@ -98,25 +73,8 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="d-flex justify-content-center">
-                                            <div class="form-check form-check-sm mb-3">
-                                                <input
-                                                    type="checkbox"
-                                                    class="form-check-input"
-                                                    id="logged_in"
-                                                    checked
-                                                >
-                                                <label class="form-check-label text-muted fs-7" for="logged_in">Keep me logged in</label>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="btn btn-primary btn-uppercase btn-block">Login</a>
-                                        <p class="p-xs mt-2 text-center">
-                                            New to Jmapack ?
-                                            <a href="#">
-                                                <u>Create new account</u>
-                                            </a>
-                                        </p>
+                                        </div>                                        
+                                        <a href="#" class="btn btn-primary btn-uppercase btn-block">Login</a>                                        
                                     </div>
                                 </div>
                             </form>

@@ -34,12 +34,10 @@ $manager-v2-theme: mat.define-light-theme(
 // that you are using.
 @include mat.all-component-themes($manager-v2-theme);
 
-$primary: #390054;
-
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --pds-color-interactive-element-hovered: rgba(60, 64, 67, 0.04);
+  --pds-color-interactive-element-hovered: rgba(60, 64, 67, 0.04);  
 }
 
 html,
@@ -52,9 +50,22 @@ body {
 }
 
 .mdc-linear-progress__bar-inner {
-  border-color: $primary !important;
+  border-color: var(--primary) !important;
 }
 
 .text-normalize {
   text-transform: initial !important;
+}
+
+.btn-primary,
+div.hopscotch-bubble
+  .hopscotch-bubble-container
+  .hopscotch-actions
+  .hopscotch-nav-button.next, .form-check-input:checked {
+  background-color: var(--primary)!important;
+  border-color: var(--primary)!important;
+}
+
+a {
+  color: var(--primary);
 }
