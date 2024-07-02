@@ -69,3 +69,11 @@ div.hopscotch-bubble
 a {
   color: var(--primary);
 }
+
+.btn-primary:disabled {
+  color: #11111180!important;
+  font-weight: 600;
+  background: rgba(17, 17, 17, .1)!important;
+  border-color: #1111111a!important;
+  cursor: not-allowed;
+}

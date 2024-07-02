@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-xl-5 col-lg-6 col-md-7 col-sm-10 position-relative mx-auto">
                         <div class="auth-content py-md-0 py-8">
-                            <form class="w-100">
+                            <form class="w-100" [formGroup]="formGroup" (submit)="auth()">
                                 <div class="row">
                                     <div class="col-lg-10 mx-auto">
                                         <h4 class="mb-4">Bem vindo de volta, vendedor!</h4>
@@ -45,9 +45,11 @@
                                                 <input
                                                     class="form-control"
                                                     placeholder="Enter username or email ID"
-                                                    value=""
+                                                    formControlName="username"
                                                     type="text"
+                                                    [ngClass]="{ 'is-invalid': invalidAccess }"
                                                 >
+                                                <div class="invalid-feedback">{{ invalidMessage }}</div>
                                             </div>
                                             <div class="form-group col-lg-12">
                                                 <div class="form-label-group">
@@ -59,7 +61,7 @@
                                                         <input
                                                             class="form-control"
                                                             placeholder="Enter your password"
-                                                            value=""
+                                                            formControlName="password"
                                                             type="password"
                                                         >
                                                         <a href="#" class="input-suffix text-muted">
@@ -74,7 +76,15 @@
                                                 </div>
                                             </div>
                                         </div>                                        
-                                        <a href="#" class="btn btn-primary btn-uppercase btn-block">Login</a>                                        
+                                        <button class="btn btn-primary btn-uppercase btn-block" type="submit" [disabled]="!formGroup.valid || loading">
+                                            <span *ngIf="!loading">Entrar</span>
+                                            <span
+                          class="spinner-border spinner-border-sm loading"
+                          role="status"
+                          aria-hidden="true"
+                          *ngIf="loading"
+                        ></span>
+                                        </button>                                        
                                     </div>
                                 </div>
                             </form>
@@ -92,7 +102,7 @@
                 <div class="row">
                     <div class="col-xl-8">
                         <p class="footer-text">
-                            <span class="copy-text">Portal do Seller © {{dateUtils.getCurrentYear()}} Todos os direitos reservados.</span>
+                            <span class="copy-text">Sales Impulse by Portal do Seller © {{dateUtils.getCurrentYear()}} Todos os direitos reservados.</span>
                         </p>
                     </div>
                     <div class="col-xl-4">
