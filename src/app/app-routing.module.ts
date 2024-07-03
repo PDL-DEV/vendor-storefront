@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutBaseComponent } from './components/layout-base/layout-base.component';
 import { AccountRoutingModule } from './modules/account/account-routing.module';
+import { verifySessionGuard } from './guard/verify-session.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutBaseComponent,
-    // canActivate: [verifySessionGuard],
+    canActivate: [verifySessionGuard],
     children: [
       
     ],

@@ -6,6 +6,7 @@ import { StoreLayout } from '../types/store-layout';
 import { BehaviorSubject } from 'rxjs';
 import { AppEnv } from '../../../enum/app-env.enum';
 import { HttpService } from '../../../services/http.service';
+import { AuthenticateUserUsecase } from '../../account/usecase/authenticate-user.usecase';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,11 @@ import { HttpService } from '../../../services/http.service';
 export class GetStoreDefinitionsService extends HttpService {
   private endpoint = environment.endpoint;
 
-  constructor(private readonly http: HttpClient) {
-    super();
+  constructor(
+    private readonly http: HttpClient,
+    private readonly AuthenticateUserUsecase: AuthenticateUserUsecase
+  ) {
+    super(AuthenticateUserUsecase);
   }
 
   async getStoreLayout(): Promise<StoreLayout> {

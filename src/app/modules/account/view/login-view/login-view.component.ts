@@ -57,6 +57,17 @@ export class LoginViewComponent implements OnInit {
       password: this.formGroup.value.password,
     });
 
-    console.log(access_token);
+    this.loading = false;
+
+    if (!access_token) {
+      this.invalidAccess = true;
+      return;
+    }
+
+    await this.authenticateUsecase.setAccessToken(access_token);
+    const user = await this.authService.getCurrentUser();
+    await this.authenticateUsecase.setCurrentUser(user);
+
+    await this.router.navigate(['/']);
   }
 }
