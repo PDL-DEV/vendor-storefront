@@ -13,6 +13,8 @@ import { GetStoreLayoutUsecase } from './modules/store/usecase/get-store-layout.
 import { GetStoreDefinitionsService } from './modules/store/services/get-store-definitions.service';
 import { StoreLayout } from './modules/store/types/store-layout';
 
+declare let $: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,7 +30,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly getStoreLayoutUsecase: GetStoreLayoutUsecase,
     private readonly getStoreDefService: GetStoreDefinitionsService,
-    private readonly renderer: Renderer2,    
+    private readonly renderer: Renderer2
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -67,30 +69,22 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const wrapper = this.document.querySelector('.hk-wrapper');
-    const hkNavbarTogglable = this.document.querySelector(
-      '.hk-navbar-togglable'
-    );
-
-    if (!wrapper || !hkNavbarTogglable) {
-      return;
-    }
-
-    hkNavbarTogglable.addEventListener('cilck', function () {
-      if (wrapper.getAttribute('data-navbar-style') !== 'collapsed') {
-        wrapper.setAttribute('data-navbar-style', 'collapsed');
-      } else {
-        wrapper.removeAttribute('data-navbar-style');
-      }
-
-      hkNavbarTogglable
-        .querySelector('.feather-icon')
-        ?.classList.toggle('d-none');
+    /*Togglable Js*/
+    const wrapper = $('.hk-wrapper');
+    const hkNavbarTogglable = $('.hk-navbar-togglable');
+    $(document).on('click', '.hk-navbar-togglable', function (e: any) {
+      if (!(wrapper.attr('data-navbar-style') == 'collapsed'))
+        wrapper.attr('data-navbar-style', 'collapsed');
+      else wrapper.removeAttr('data-navbar-style');
+      hkNavbarTogglable.find('.feather-icon').toggleClass('d-none');
       return false;
     });
   }
 
-  private setColorPallet(): void {        
-    this.document.documentElement.style.setProperty('--primary', this.layout.primary_color);
+  private setColorPallet(): void {
+    this.document.documentElement.style.setProperty(
+      '--primary',
+      this.layout.primary_color
+    );
   }
 }
