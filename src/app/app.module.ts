@@ -15,7 +15,12 @@ import {
   CURRENCY_MASK_CONFIG,
   CURRENCYMASKDIRECTIVE_VALUE_ACCESSOR,
 } from 'ng2-currency-mask';
-import { CommonModule, CurrencyPipe, DatePipe, registerLocaleData } from '@angular/common';
+import {
+  CommonModule,
+  CurrencyPipe,
+  DatePipe,
+  registerLocaleData,
+} from '@angular/common';
 import { IConfig, provideEnvironmentNgxMask } from 'ngx-mask';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { LayoutBaseComponent } from './components/layout-base/layout-base.component';
@@ -25,6 +30,11 @@ import { ProgressQueryBarComponent } from './components/progress-query-bar/progr
 import { ProgressQueryBarService } from './services/progress-query-bar.service';
 import { InjectScriptService } from './services/inject-script.service';
 import { AccountModule } from './modules/account/account.module';
+import { FabButtonComponent } from './components/fab-button/fab-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 registerLocaleData(localePt);
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -50,13 +60,24 @@ export const CustomPercentMaskConfig: CurrencyMaskConfig = {
 };
 
 @NgModule({
-  declarations: [AppComponent, LayoutBaseComponent, TopnavbarComponent, VerticalNavbarComponent, ProgressQueryBarComponent],
+  declarations: [
+    AppComponent,
+    LayoutBaseComponent,
+    TopnavbarComponent,
+    VerticalNavbarComponent,
+    ProgressQueryBarComponent,
+    FabButtonComponent,
+  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    AccountModule
+    AccountModule,
   ],
   providers: [
     ProgressQueryBarService,

@@ -18,5 +18,13 @@ export class VendorType {
         this.phone = object.phone || null;
       }
     }
+
+    getInitialsName(): string {
+      if (!this.name) {
+        return '';
+      }
+
+      return this.name.charAt(0);
+    }
   }
   

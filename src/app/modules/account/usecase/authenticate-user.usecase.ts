@@ -98,7 +98,7 @@ export class AuthenticateUserUsecase {
           decryp2 = JSON.parse(decryp2);
         }
 
-        return decryp2;
+        return new VendorType(decryp2);
       } catch (error) {
         this.logout();
       }

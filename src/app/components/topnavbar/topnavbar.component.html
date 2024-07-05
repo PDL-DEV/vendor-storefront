@@ -376,8 +376,10 @@
                             data-bs-auto-close="outside"
                             aria-expanded="false"
                         >
-                            <div class="avatar avatar-rounded avatar-xs">
-                                <img src="dist/img/avatar12.jpg" alt="user" class="avatar-img">
+                            <div class="media-head me-2">
+                                <div class="avatar avatar-primary avatar-sm avatar-rounded">
+                                    <span class="initial-wrap">{{user?.getInitialsName()}}</span>
+                                </div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -385,62 +387,20 @@
                                 <div class="media">
                                     <div class="media-head me-2">
                                         <div class="avatar avatar-primary avatar-sm avatar-rounded">
-                                            <span class="initial-wrap">Hk</span>
+                                            <span class="initial-wrap">{{user?.getInitialsName()}}</span>
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <div class="dropdown">
-                                            <a
-                                                href="#"
-                                                class="d-block dropdown-toggle link-dark fw-medium"
-                                                data-bs-toggle="dropdown"
-                                                data-dropdown-animation
-                                                data-bs-auto-close="inside"
-                                            >Hencework</a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <div class="p-2">
-                                                    <div class="media align-items-center active-user mb-3">
-                                                        <div class="media-head me-2">
-                                                            <div class="avatar avatar-primary avatar-xs avatar-rounded">
-                                                                <span class="initial-wrap">Hk</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <a href="#" class="d-flex align-items-center link-dark">Hencework
-                                                                <i class="ri-checkbox-circle-fill fs-7 text-primary ms-1"></i>
-                                                            </a>
-                                                            <a href="#" class="d-block fs-8 link-secondary">
-                                                                <u>Manage your account</u>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="media align-items-center mb-3">
-                                                        <div class="media-head me-2">
-                                                            <div class="avatar avatar-xs avatar-rounded">
-                                                                <img src="dist/img/avatar12.jpg" alt="user" class="avatar-img">
-                                                            </div>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <a href="#" class="d-block link-dark">Jampack Team</a>
-                                                            <a href="#" class="d-block fs-8 link-secondary">contact&#64;hencework.com</a>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-block btn-outline-light btn-sm">
-                                                        <span>
-                                                            <span class="icon">
-                                                                <span class="feather-icon">
-                                                                    <i data-feather="plus"></i>
-                                                                </span>
-                                                            </span>
-                                                            <span>Add Account</span>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="fs-7">contact&#64;hencework.com</div>
-                                        <a href="#" class="d-block fs-8 link-secondary">
-                                            <u>Sign Out</u>
+                                        <a
+                                            href="#"
+                                            class="d-block dropdown-toggle link-dark fw-medium"
+                                            data-bs-toggle="dropdown"
+                                            data-dropdown-animation
+                                            data-bs-auto-close="inside"
+                                        >{{user?.name}}</a>                                        
+                                        <div class="fs-7">{{user?.email}}</div>
+                                        <a href="javascrit:void(0)" class="d-block fs-8 link-secondary" (click)="logout()">
+                                            <u>Sair</u>
                                         </a>
                                     </div>
                                 </div>

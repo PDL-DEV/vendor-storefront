@@ -66,6 +66,10 @@ div.hopscotch-bubble
   border-color: var(--primary)!important;
 }
 
+.hk-wrapper[data-layout=vertical] .hk-menu .menu-content-wrap .menu-group .navbar-nav > .nav-item.active > .nav-link {
+  color: var(--primary) !important;
+}
+
 a {
   color: var(--primary);
 }
@@ -76,4 +80,9 @@ a {
   background: rgba(17, 17, 17, .1)!important;
   border-color: #1111111a!important;
   cursor: not-allowed;
+}
+
+.brand-img {
+  width: 120px;
+  height: 50px;
 }
