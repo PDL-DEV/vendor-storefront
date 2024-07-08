@@ -1,1 +1,1 @@
-export { AppServerModule as default } from './app/app.module.server';
+export { AppServerModule as default } from './view/app/app.module.server';

@@ -133,7 +133,7 @@ Project:	Jampack
 /****************************/
 
 @import url(https://fonts.googleapis.com/icon?family=DM+Sans:400,500,700&display=swap||Material+Icons);
-@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "../css/font-awesome.min.css";
 @import "../css/dripicons.css";
 @import "../css/cryptofont.min.css";
@@ -147,10 +147,10 @@ Project:	Jampack
 @import "../css/line-awesome.min.css";
 @import "../css/flaticon.css";
 @import "../css/prism.css";
-@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
-@import "../../../node_modules/simplebar/dist/simplebar.min.css";
-@import "../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
-@import "../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
+@import "../../../../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+@import "../../../../node_modules/simplebar/dist/simplebar.min.css";
+@import "../../../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
+@import "../../../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 @import "mixins.scss";
 @import "variables.scss";
 

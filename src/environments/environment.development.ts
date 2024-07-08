@@ -1,4 +1,4 @@
-import { AppEnv } from "../app/enum/app-env.enum";
+import { AppEnv } from "../view/app/enum/app-env.enum";
 
 export const environment = {
   env: AppEnv.DEV,
