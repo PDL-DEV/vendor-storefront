@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { ProgressQueryBarService } from '../../services/progress-query-bar.service';
+import { ProgressQueryBarService } from '../../../services/progress-query-bar.service';
 
 @Component({
   selector: 'app-layout-base',

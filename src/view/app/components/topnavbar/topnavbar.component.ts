@@ -1,27 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { VendorType } from '../../modules/account/types/vendor.type';
-import { AuthenticateUserUsecase } from '../../modules/account/usecase/authenticate-user.usecase';
+import { GetCurrentUserUsecase } from '../../../../core/usecases/get-current-user.usecase';
+import { UserModel } from '../../../../core/models/user.model';
+import { UserLogoutUsecase } from '../../../../core/usecases/user-logout.usecase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topnavbar',
   templateUrl: './topnavbar.component.html',
-  styleUrl: './topnavbar.component.scss'
+  styleUrl: './topnavbar.component.scss',
 })
-export class TopnavbarComponent implements OnInit{
-  public user: VendorType;
+export class TopnavbarComponent implements OnInit {
+  public user: UserModel;
 
   constructor(
-    private readonly authenticateUserUsecase: AuthenticateUserUsecase
-  ){}
+    private readonly getCurrentUserUC: GetCurrentUserUsecase,
+    private readonly userLogoutUC: UserLogoutUsecase,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.authenticateUserUsecase.current_user.subscribe(() => {
-      this.user = this.authenticateUserUsecase.getCurrentUser();
-    });
+    this.user = this.getCurrentUserUC.get();
+  }
+
+  getInitialsName(): string {
+    if (!this.user || !this.user.name) {
+      return '';
+    }
+
+    return this.user.name.charAt(0);
   }
 
   async logout(): Promise<void> {
-    await this.authenticateUserUsecase.logout();
-    window.location.href = '/login';
+    this.userLogoutUC.execute();
+    this.router.navigate(['/login'])
   }
 }

@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreLayout } from '../../modules/store/types/store-layout';
-import { GetStoreLayoutUsecase } from '../../modules/store/usecase/get-store-layout.usecase';
 import { Router } from '@angular/router';
+import { StoreModel } from '../../../../core/models/store.model';
+import { GetCurrentStoreUsecase } from '../../../../core/usecases/get-current-store.usecase';
 
 @Component({
   selector: 'app-vertical-navbar',
   templateUrl: './vertical-navbar.component.html',
-  styleUrl: './vertical-navbar.component.scss'
+  styleUrl: './vertical-navbar.component.scss',
 })
 export class VerticalNavbarComponent implements OnInit {
-  public layout: StoreLayout;
+  public store: StoreModel;
 
   constructor(
-    private readonly getStoreLayoutUsecase: GetStoreLayoutUsecase,
+    private readonly getCurentStoreUC: GetCurrentStoreUsecase,
     public readonly router: Router
-  ){    }
-
+  ) {}
 
   ngOnInit(): void {
-    this.getStoreLayoutUsecase.store_layout.subscribe(() => {
-      this.layout = this.getStoreLayoutUsecase.getStoreLayout();
+    this.getCurentStoreUC.execute().subscribe({
+      next: (store) => {
+        this.store = store;
+      },
     });
   }
 }

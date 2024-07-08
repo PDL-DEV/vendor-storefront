@@ -27,14 +27,15 @@ import { LayoutBaseComponent } from './components/layout-base/layout-base.compon
 import { TopnavbarComponent } from './components/topnavbar/topnavbar.component';
 import { VerticalNavbarComponent } from './components/vertical-navbar/vertical-navbar.component';
 import { ProgressQueryBarComponent } from './components/progress-query-bar/progress-query-bar.component';
-import { ProgressQueryBarService } from './services/progress-query-bar.service';
-import { InjectScriptService } from './services/inject-script.service';
-import { AccountModule } from './modules/account/account.module';
+import { ProgressQueryBarService } from '../services/progress-query-bar.service';
+import { InjectScriptService } from '../services/inject-script.service';
 import { FabButtonComponent } from './components/fab-button/fab-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { LoginModule } from './modules/login/login.module';
+import { DataModule } from '../../data/data.module';
 
 registerLocaleData(localePt);
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -77,7 +78,8 @@ export const CustomPercentMaskConfig: CurrencyMaskConfig = {
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    AccountModule,
+    LoginModule,
+    DataModule
   ],
   providers: [
     ProgressQueryBarService,

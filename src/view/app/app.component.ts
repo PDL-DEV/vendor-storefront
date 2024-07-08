@@ -5,13 +5,14 @@ import {
   OnInit,
   Renderer2,
 } from '@angular/core';
-import { InjectScriptService } from './services/inject-script.service';
+import { InjectScriptService } from '../services/inject-script.service';
 import { ActivationStart, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
-import { GetStoreLayoutUsecase } from './modules/store/usecase/get-store-layout.usecase';
-import { GetStoreDefinitionsService } from './modules/store/services/get-store-definitions.service';
-import { StoreLayout } from './modules/store/types/store-layout';
+import { GetStoreUsecase } from '../../core/usecases/get-store.usecase';
+import { GetCurrentStoreUsecase } from '../../core/usecases/get-current-store.usecase';
+import { SetCurrentStoreUseCase } from '../../core/usecases/set-current-store.usecase';
+import { StoreModel } from '../../core/models/store.model';
 
 declare let $: any;
 
@@ -21,21 +22,20 @@ declare let $: any;
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  private layout: StoreLayout;
+  private store: StoreModel;
 
   constructor(
     @Inject(InjectScriptService)
     private readonly injectScript: InjectScriptService,
     private router: Router,
-    @Inject(DOCUMENT) private readonly document: Document,
-    private readonly getStoreLayoutUsecase: GetStoreLayoutUsecase,
-    private readonly getStoreDefService: GetStoreDefinitionsService,
-    private readonly renderer: Renderer2
+    @Inject(DOCUMENT) private readonly document: Document,    
+    private readonly getStoreUsecase: GetStoreUsecase,
+    private readonly setCurrentStoreUC: SetCurrentStoreUseCase,
+    private readonly getCurrentStoreUC: GetCurrentStoreUsecase
   ) {}
 
   async ngOnInit(): Promise<void> {
-    await this.setStoreLayout();
-    await this.setColorPallet();
+    this.setStore();    
     this.injectScript.inject();
 
     this.router.events
@@ -52,20 +52,19 @@ export class AppComponent implements OnInit, AfterViewInit {
       });
   }
 
-  async setStoreLayout(): Promise<void> {
-    this.layout = await this.getStoreLayoutUsecase.getStoreLayout();
+  setStore(): void {
+    this.getCurrentStoreUC.execute().subscribe((currentStore) => {
+      if (!currentStore) {
+        this.getStoreUsecase.execute().subscribe((store) => {
+          if (store) {
+            this.setCurrentStoreUC.set(store);
+          }
+        });
+      }
 
-    if (this.layout) {
-      return;
-    }
-
-    const store_layout = await this.getStoreDefService.getStoreLayout();
-    if (!store_layout) {
-      return;
-    }
-
-    this.layout = new StoreLayout(store_layout);
-    await this.getStoreLayoutUsecase.setStoreLayout(this.layout);
+      this.store = currentStore;
+      this.setColorPallet();
+    });
   }
 
   ngAfterViewInit(): void {
@@ -84,7 +83,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   private setColorPallet(): void {
     this.document.documentElement.style.setProperty(
       '--primary',
-      this.layout.primary_color
+      this.store.layout.primary_color
     );
   }
 }
