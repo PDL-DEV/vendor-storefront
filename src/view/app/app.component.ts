@@ -23,6 +23,8 @@ declare let $: any;
 })
 export class AppComponent implements OnInit, AfterViewInit {
   private store: StoreModel;
+  private currentUrl: string;
+  private previousUrl: string;
 
   constructor(
     @Inject(InjectScriptService)
@@ -34,7 +36,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private readonly getCurrentStoreUC: GetCurrentStoreUsecase
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  async ngOnInit(): Promise<void> {        
     this.setStore();    
     this.injectScript.inject();
 

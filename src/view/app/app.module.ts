@@ -34,8 +34,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { LoginModule } from './modules/login/login.module';
+import { LoginModule } from './pages/login/login.module';
 import { DataModule } from '../../data/data.module';
+import { SalesJourneyContentComponent } from './components/sales-journey-content/sales-journey-content.component';
+import { SalesJourneyModule } from './pages/sales-journey/sales-journey.module';
+import { SalesJourneyTopbarComponent } from './components/sales-journey-topbar/sales-journey-topbar.component';
+import { PreviousRouteService } from '../services/previous-route.service';
+import { SalesJourneyResumeSidebarComponent } from './components/sales-journey-resume-sidebar/sales-journey-resume-sidebar.component';
+import { ComponentsModule } from './components/components.module';
 
 registerLocaleData(localePt);
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -62,16 +68,12 @@ export const CustomPercentMaskConfig: CurrencyMaskConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LayoutBaseComponent,
-    TopnavbarComponent,
-    VerticalNavbarComponent,
-    ProgressQueryBarComponent,
-    FabButtonComponent,
+    AppComponent    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ComponentsModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
@@ -79,7 +81,8 @@ export const CustomPercentMaskConfig: CurrencyMaskConfig = {
     HttpClientModule,
     CommonModule,
     LoginModule,
-    DataModule
+    DataModule,
+    SalesJourneyModule,
   ],
   providers: [
     ProgressQueryBarService,
@@ -92,6 +95,7 @@ export const CustomPercentMaskConfig: CurrencyMaskConfig = {
     [{ provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' }],
     { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
     provideEnvironmentNgxMask(),
+    PreviousRouteService,
   ],
   bootstrap: [AppComponent],
 })

@@ -86,3 +86,25 @@ a {
   width: 120px;
   height: 50px;
 }
+
+html .mat-mdc-fab.mat-primary {
+  --mdc-fab-container-color:#390054!important;
+}
+
+
+.bg-base {
+  background-color: #ddd;
+}
+
+.mat-button-toggle-checked .mat-button-toggle-button {
+  background-color: #390054!important;
+  color: #fff;
+
+  .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after {
+    color: #fff!important;
+  }
+}
+
+.pds-primary {
+  --primary: #390054!important;
+}

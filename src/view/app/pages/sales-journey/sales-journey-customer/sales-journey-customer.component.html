@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="hk-pg-header pt-7 border-none bg-transparent">
+    <div class="mb-lg-0 mb-2 text-center d-flex flex-column aling-items-center">
+      <h1 class="pg-title">Identificar cliente</h1>
+      <p>
+        Ao identificar seu cliente, ele poderá receber as notificações por email
+      </p>
+    </div>
+  </div>
+
+  <div class="hk-pg-body">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle value="email">Email</mat-button-toggle>
+          <mat-button-toggle value="cpf">CPF</mat-button-toggle>
+          <mat-button-toggle value="cnpj">CNPJ</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <form class="pt-3">
+      <div class="row pt-3 justify-content-center">
+        <div class="col-12 col-lg-6">
+          <input
+            class="form-control form-control-lg mb-3"
+            type="text"
+            placeholder="Digite aqui..."
+          />
+        </div>
+      </div>
+      <div class="row pt-3 justify-content-center">
+        <div class="col-12 col-lg-6">
+          <button
+            type="button"
+            class="btn btn-primary btn-square w-100 pds-primary fw-medium"
+          >
+            Continuar
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="row pt-4">
+      <div
+        class="col-12 text-center d-flex flex-column align-items-center"
+        style="gap: 8px"
+      >
+        <div><strong class="text-uppercase h5">ou</strong></div>
+        <a href="#!" class="text-uppercase text-primary pds-primary"
+          >Continuar sem identificação</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,10 @@
     ],
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "paths": {
+      "@assets": ["./src/view/assets/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

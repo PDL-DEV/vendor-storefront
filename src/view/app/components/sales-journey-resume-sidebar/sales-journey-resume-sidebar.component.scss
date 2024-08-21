@@ -1,0 +1,23 @@
+.journey-resume-wrapper {
+  padding: 30px 24px 21px;
+  border-radius: 8px;
+  background-color: #fff;
+
+  .journey-resume-title {
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-align: left;
+    color: #424242;
+  }
+}
+
+.resume-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

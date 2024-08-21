@@ -1,0 +1,10 @@
+.journey-resume-active {
+  position: relative;
+  height: calc(100vh - 65px);  
+
+  .journey-content {
+    .journey-detail-wrap {
+      display: flex;
+    }
+  }
+}

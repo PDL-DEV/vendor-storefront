@@ -1,0 +1,25 @@
+<div class="journey-resume-wrapper">
+  <div class="mb-3">
+    <a href="#!" class="text-uppercase text-primary pds-primary">Adicionar cupom de desconto</a>
+  </div>
+  <div class="journey-resume-title">Resumo</div>
+  <hr />
+  <div class="d-flex flex-column" style="gap: 8px">
+    <div class="resume-item">
+      <div class="resume-item-label">Subtotal</div>
+      <div class="resume-item-value">{{ 0 | currency : "BRL" }}</div>
+    </div>
+    <div class="resume-item">
+      <div class="resume-item-label">Descontos</div>
+      <div class="resume-item-value">{{ 0 | currency : "BRL" }}</div>
+    </div>
+    <div class="resume-item">
+      <div class="resume-item-label fw-bold">Total</div>
+      <div class="resume-item-value fw-bold">{{ 0 | currency : "BRL" }}</div>
+    </div>
+    <hr />
+    <button class="btn btn-primary btn-square w-100 pds-primary fw-medium">
+      Continuar
+    </button>
+  </div>
+</div>

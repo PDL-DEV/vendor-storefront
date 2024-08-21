@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DateUtils } from '../../../../../utils/date.utils';
+import { DateUtils } from '../../../../utils/date.utils';
 import { Router } from '@angular/router';
-import { StoreModel } from '../../../../../core/models/store.model';
-import { GetCurrentStoreUsecase } from '../../../../../core/usecases/get-current-store.usecase';
-import { UserLoginUsecase } from '../../../../../core/usecases/user-login.usecase';
-import { SetCurrentAccessTokenUsecase } from '../../../../../core/usecases/set-current-access-token.usecase';
-import { GetUserProfileUsecase } from '../../../../../core/usecases/get-user-profile.usecase';
-import { SetCurrentUserUsecase } from '../../../../../core/usecases/set-current-user.usecase';
+import { StoreModel } from '../../../../core/models/store.model';
+import { GetCurrentStoreUsecase } from '../../../../core/usecases/get-current-store.usecase';
+import { UserLoginUsecase } from '../../../../core/usecases/user-login.usecase';
+import { SetCurrentAccessTokenUsecase } from '../../../../core/usecases/set-current-access-token.usecase';
+import { GetUserProfileUsecase } from '../../../../core/usecases/get-user-profile.usecase';
+import { SetCurrentUserUsecase } from '../../../../core/usecases/set-current-user.usecase';
 
 @Component({
   selector: 'app-login',

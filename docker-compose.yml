@@ -1,0 +1,17 @@
+services:
+  sales-impulse-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000    
+    command: ng serve --port 8000 --host 0.0.0.0
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - portaldoseller-network
+
+networks:
+  portaldoseller-network:
+    external: true

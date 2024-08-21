@@ -1,20 +1,19 @@
 <div class="fab-container">
-    <button mat-fab [matMenuTriggerFor]="menu" color="primary">
-      <mat-icon>add</mat-icon>
+  <button mat-fab [matMenuTriggerFor]="menu" color="primary">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/sales-journey', 'customer']">
+      <mat-icon>shopping_cart</mat-icon>
+      <span>Iniciar venda</span>
     </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <mat-icon>shopping_cart</mat-icon>
-        <span>Iniciar venda</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>person_add</mat-icon>
-        <span>Cadastrar novo cliente</span>
-      </button>
-      <button mat-menu-item>
-        <mat-icon>restore</mat-icon>
-        <span>Recuperar Carrinho</span>
-      </button>
-    </mat-menu>
-  </div>
-  
+    <button mat-menu-item>
+      <mat-icon>person_add</mat-icon>
+      <span>Cadastrar novo cliente</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>restore</mat-icon>
+      <span>Recuperar Carrinho</span>
+    </button>
+  </mat-menu>
+</div>
