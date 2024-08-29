@@ -68,7 +68,7 @@ export const CustomPercentMaskConfig: CurrencyMaskConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent    
+    AppComponent,
   ],
   imports: [
     BrowserModule,

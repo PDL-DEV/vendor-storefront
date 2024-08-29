@@ -19,7 +19,7 @@ const routes: Routes = [
         component: SalesJourneyCartComponent,
       },
     ],
-    canActivate: [verifySessionGuard],
+    // canActivate: [verifySessionGuard],
   },
 ];
 

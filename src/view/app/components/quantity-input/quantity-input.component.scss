@@ -1,0 +1,31 @@
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+.quantity-container button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quantity-container input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    font-size: 18px;
+    margin: 0 8px;
+    -moz-appearance: textfield; /* Remove os manipuladores no Firefox */
+}
+.quantity-container input::-webkit-outer-spin-button,
+.quantity-container input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Remove os manipuladores no Chrome, Safari e Edge */
+}
+.quantity-container button:active {
+    background-color: #ddd;
+}

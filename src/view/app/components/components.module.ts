@@ -13,6 +13,7 @@ import { VerticalNavbarComponent } from './vertical-navbar/vertical-navbar.compo
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { QuantityInputComponent } from './quantity-input/quantity-input.component';
 
 
 
@@ -25,7 +26,8 @@ import { MatButtonModule } from '@angular/material/button';
     SalesJourneyResumeSidebarComponent,
     SalesJourneyTopbarComponent,
     TopnavbarComponent,
-    VerticalNavbarComponent
+    VerticalNavbarComponent,
+    QuantityInputComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { MatButtonModule } from '@angular/material/button';
     SalesJourneyResumeSidebarComponent,
     SalesJourneyTopbarComponent,
     TopnavbarComponent,
-    VerticalNavbarComponent
+    VerticalNavbarComponent,
+    QuantityInputComponent
   ]
 })
 export class ComponentsModule { }

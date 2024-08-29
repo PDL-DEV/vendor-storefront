@@ -5,6 +5,51 @@
         <h1 class="pg-title">Carrinho</h1>
         <p>Adicione os produtos ao carrinho ou ao orçamento</p>
       </div>
+      <div class="pt-4 table-responsive">
+        <table class="table table-headless">
+          <tbody>
+            <tr *ngFor="let item of itens">
+              <td>
+                <span class="form-check mb-0"><input type="checkbox" class="form-check-input check-select"
+                    id="chk_sel_1"><label class="form-check-label" for="chk_sel_1"></label></span>
+              </td>
+              <td>
+                <div class="d-flex align-items-center" style="gap: 8px;">
+                  <div class="avatar avatar-rounded position-relative">
+                    <img src="https://www.portaldoseller.com.br/images/products/6553b8723538320231114181202.webp"
+                      alt="user" class="avatar-img">
+                  </div>
+                  <div class="d-flex flex-column">
+                    <small class="text-muted">Cód. pai: <b>101010</b></small>
+                    <small class="text-muted">
+                      REF: <b>101010</b>
+                    </small>
+                  </div>
+                </div>
+              </td>
+              <td>
+                {{1300 | currency: "BRL"}}
+              </td>
+              <td>
+                <app-quantity-input></app-quantity-input>
+              </td>
+              <td>
+                {{1300 | currency: "BRL"}}
+              </td>
+              <td>
+                <button class="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover"
+                  matTooltip="Ver detalhes do produto" matTooltipPosition="above">
+                  <span class="icon">
+                    <span class="feather-icon">
+                      <i data-feather="eye"></i>
+                    </span>
+                  </span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="col-12 col-lg-4 mb-2">
       <app-sales-journey-resume-sidebar></app-sales-journey-resume-sidebar>
